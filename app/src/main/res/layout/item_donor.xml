@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingHorizontal="10dp"
+    tools:layout_editor_absoluteX="192dp"
+    tools:layout_editor_absoluteY="275dp">
+
+    <TextView
+        android:id="@+id/name_text"
+        android:gravity="center_vertical"
+        android:layout_width="wrap_content"
+        android:textColor="@color/black"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="Abdulrahman Mahidwei"
+        android:textAlignment="inherit" />
+
+    <TextView
+        android:id="@+id/age_txt"
+        android:textColor="@color/black"
+        android:gravity="center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="22/10/2021" />
+
+    <ImageButton
+        android:id="@+id/request_btn"
+        android:gravity="center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        app:srcCompat="@drawable/ic_message" />
+</LinearLayout>

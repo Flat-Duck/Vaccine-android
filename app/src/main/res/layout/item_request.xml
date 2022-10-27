@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingHorizontal="10dp"
+    tools:layout_editor_absoluteX="192dp"
+    tools:layout_editor_absoluteY="275dp">
+
+    <TextView
+        android:id="@+id/from_text"
+        android:gravity="center_vertical"
+        android:layout_width="wrap_content"
+        android:textColor="@color/black"
+        android:layout_height="match_parent"
+        android:layout_weight="0.4"
+        android:text="Abdulrahman Mahidwei"
+        android:textAlignment="inherit" />
+
+    <TextView
+        android:id="@+id/date_txt"
+        android:textColor="@color/black"
+        android:gravity="center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="0.2"
+        android:text="22/10/2021" />
+    <TextView
+        android:id="@+id/phone_txt"
+        android:visibility="gone"
+        android:textColor="@color/black"
+        android:gravity="center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="0.4"
+        android:text="22/10/2021" />
+
+    <ImageButton
+        android:id="@+id/accept_btn"
+        android:gravity="center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        app:srcCompat="@drawable/ic_check" />
+
+    <ImageButton
+        android:id="@+id/refuse_btn"
+        android:gravity="center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        app:srcCompat="@drawable/ic_close" />
+</LinearLayout>

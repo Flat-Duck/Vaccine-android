@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "924345780760",
+    "firebase_url": "https://corona-8561a-default-rtdb.firebaseio.com",
+    "project_id": "corona-8561a",
+    "storage_bucket": "corona-8561a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:924345780760:android:5c33417190ce720bbfd16d",
+        "android_client_info": {
+          "package_name": "ly.smarthive.corona"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "924345780760-mso25v4559up2vfc017fqmpi7pg0jl4k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSxyTkN_2_22DRnJ83a7XWnkxhvkZRsZ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "924345780760-mso25v4559up2vfc017fqmpi7pg0jl4k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:924345780760:android:da1f7e32de616ee6bfd16d",
+        "android_client_info": {
+          "package_name": "ly.smarthive.vaccine"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "924345780760-ktbv54um1h3787eopo0qcje1bkcudh6a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ly.smarthive.vaccine",
+            "certificate_hash": "cefd48153e466204b69f0d329fe4c946671c012f"
+          }
+        },
+        {
+          "client_id": "924345780760-mso25v4559up2vfc017fqmpi7pg0jl4k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSxyTkN_2_22DRnJ83a7XWnkxhvkZRsZ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "924345780760-mso25v4559up2vfc017fqmpi7pg0jl4k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
