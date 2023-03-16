@@ -1,6 +1,5 @@
 package ly.smarthive.vaccine.activities;
 
-import static ly.smarthive.vaccine.COMMON.*;
 import static ly.smarthive.vaccine.COMMON.CURRENT_USER_EMAIL;
 import static ly.smarthive.vaccine.COMMON.CURRENT_USER_ID;
 import static ly.smarthive.vaccine.COMMON.CURRENT_USER_PASSWORD;
@@ -38,13 +37,15 @@ import java.util.Map;
 import java.util.Objects;
 
 import ly.smarthive.vaccine.AppController;
+import ly.smarthive.vaccine.ProfileActivity;
+import ly.smarthive.vaccine.QrActivity;
 import ly.smarthive.vaccine.R;
 import ly.smarthive.vaccine.util.SessionManager;
 
 public class NavActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = NavActivity.class.getSimpleName();
-    CardView centers, donors, requests, map, exit, swipes, stats, posts;
+    CardView centers, qr, requests, map, exit, swipes, stats, posts;
     SessionManager session;
     FirebaseAuth mAuth;
 
@@ -62,9 +63,9 @@ public class NavActivity extends AppCompatActivity implements View.OnClickListen
 
         centers = findViewById(R.id.centers_btn);
         centers.setOnClickListener(this);
-        donors = findViewById(R.id.donors_btn);
-        donors.setOnClickListener(this);
-        requests = findViewById(R.id.request_btn);
+        qr = findViewById(R.id.qr_btn);
+        qr.setOnClickListener(this);
+        requests = findViewById(R.id.profile_btn);
         requests.setOnClickListener(this);
         map = findViewById(R.id.map_btn);
         map.setOnClickListener(this);
@@ -196,11 +197,11 @@ public class NavActivity extends AppCompatActivity implements View.OnClickListen
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.donors_btn:
-                startActivity(new Intent(NavActivity.this, DonorsActivity.class));
+            case R.id.qr_btn:
+                startActivity(new Intent(NavActivity.this, QrActivity.class));
                 break;
-            case R.id.request_btn:
-                startActivity(new Intent(NavActivity.this, RequestsActivity.class));
+            case R.id.profile_btn:
+                startActivity(new Intent(NavActivity.this, ProfileActivity.class));
                 break;
             case R.id.map_btn:
                 startActivity(new Intent(NavActivity.this, MapActivity.class));

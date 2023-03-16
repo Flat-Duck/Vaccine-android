@@ -19,8 +19,8 @@
 
         <TextView
             style="@style/headerText"
-            android:text="Account Info"
-            android:layout_marginBottom="20dp"/>
+            android:layout_marginBottom="20dp"
+            android:text="البيانات الشخصية" />
 
         <RelativeLayout style="@style/profileDetailsLayout">
             <ImageView
@@ -30,14 +30,15 @@
 
             <TextView
                 android:id="@+id/nameTextView"
-                android:text="Name"
+                style="@style/profileDetailsTextMain"
                 android:layout_toRightOf="@id/nameImageView"
-                style="@style/profileDetailsTextMain" />
+                android:text="الاسم" />
 
             <TextView
-                android:text="Abdulrahman Mahidwei"
+                android:id="@+id/u_name"
+                style="@style/profileDetailsMiniText"
                 android:layout_toRightOf="@id/nameImageView"
-                style="@style/profileDetailsMiniText" />
+                android:text="Abdulrahman Mahidwei" />
 
         </RelativeLayout>
 
@@ -49,11 +50,12 @@
                 style="@style/profileDetailsImage" />
 
             <TextView
-                android:text="Mobile"
+                style="@style/profileDetailsTextMain"
                 android:layout_toRightOf="@id/mobileImageView"
-                style="@style/profileDetailsTextMain"/>
+                android:text="رقم الهاتف" />
 
             <TextView
+                android:id="@+id/u_phone"
                 style="@style/profileDetailsMiniText"
                 android:layout_toRightOf="@id/mobileImageView"
                 android:text="091-9258142" />
@@ -68,11 +70,12 @@
                 style="@style/profileDetailsImage" />
 
             <TextView
-                android:text="Email"
+                style="@style/profileDetailsTextMain"
                 android:layout_toRightOf="@id/emailImageView"
-                style="@style/profileDetailsTextMain" />
+                android:text="البريد الالكتروني" />
 
             <TextView
+                android:id="@+id/u_email"
                 style="@style/profileDetailsMiniText"
                 android:layout_toRightOf="@id/emailImageView"
                 android:text="a.mahidwei@outlook.com" />
@@ -87,11 +90,12 @@
                 style="@style/profileDetailsImage" />
 
             <TextView
-                android:text="Address"
+                style="@style/profileDetailsTextMain"
                 android:layout_toRightOf="@id/addressImageView"
-                style="@style/profileDetailsTextMain" />
+                android:text="العنوان" />
 
             <TextView
+                android:id="@+id/u_address"
                 style="@style/profileDetailsMiniText"
                 android:layout_toRightOf="@id/addressImageView"
                 android:text="Tripoli, Ainzara" />
@@ -106,14 +110,15 @@
                 style="@style/profileDetailsImage" />
 
             <TextView
-                android:text="D.O.B"
+                style="@style/profileDetailsTextMain"
                 android:layout_toRightOf="@id/dobImageView"
-                style="@style/profileDetailsTextMain" />
+                android:text="تاريخ الميلاد" />
 
             <TextView
-                android:text="20/06/1992"
+                android:id="@+id/u_birth"
+                style="@style/profileDetailsMiniText"
                 android:layout_toRightOf="@id/dobImageView"
-                style="@style/profileDetailsMiniText" />
+                android:text="20/06/1992" />
 
         </RelativeLayout>
 

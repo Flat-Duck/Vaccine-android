@@ -114,6 +114,8 @@ public class CentersActivity extends AppCompatActivity  implements CentersDataAd
                 Center center = new Center();
                 center.setName(feedObj.getString("name"));
                 center.setAddress(feedObj.getString("address"));
+                center.setLatitude(feedObj.getDouble("latitude"));
+                center.setLongitude(feedObj.getDouble("longitude"));
                 CentersList.add(center);
                 mAdapter.notifyDataSetChanged();
             }
@@ -125,7 +127,7 @@ public class CentersActivity extends AppCompatActivity  implements CentersDataAd
     @Override
     public void selectedItem(Center center, boolean accept) {
         Intent intent = new Intent(Intent.ACTION_VIEW,
-                Uri.parse("google.navigation:q="+center.getLat()+","+center.getLng()+"&mode=1"));
+                Uri.parse("google.navigation:q="+center.getLatitude()+","+center.getLongitude()+"&mode=1"));
         intent.setPackage("com.google.android.apps.maps");
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);

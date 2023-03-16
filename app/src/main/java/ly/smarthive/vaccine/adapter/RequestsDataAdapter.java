@@ -77,6 +77,8 @@ public class RequestsDataAdapter extends RecyclerView.Adapter<RequestsDataAdapte
     public int getItemCount() {
         return requestsList.size();
     }
+
+
     public interface SelectedItem{
         void selectedItem(Request request,boolean accept);
     }

@@ -61,7 +61,7 @@ public class StartActivity extends AppCompatActivity {
         final View picker_layout = LayoutInflater.from(this).inflate(R.layout.layout_login, null);
         builder.setView(picker_layout);
         builder.setTitle(R.string.sign_in_title);
-        builder.setMessage(R.string.please_use_phone);
+        builder.setMessage(R.string.please_use_email);
         inputPhone = picker_layout.findViewById(R.id.phone);
         inputPassword = picker_layout.findViewById(R.id.passwrod);
 

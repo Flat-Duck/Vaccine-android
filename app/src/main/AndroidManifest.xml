@@ -4,7 +4,11 @@
     package="ly.smarthive.vaccine">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+
     <application
+        android:name=".AppController"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -15,12 +19,45 @@
         android:theme="@style/Theme.Vaccine"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+
+        <activity
+            android:name=".activities.StartActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:exported="true"/>
+
+        <activity
+            android:name=".activities.NavActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".activities.CentersActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".activities.DonorsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".activities.IndexActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.MapActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.RequestsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".activities.SwipesActivity"
+            android:exported="false" />
+
         <activity
             android:name=".ProfileActivity"
             android:exported="false" />
-        <activity
-            android:name=".StartActivity"
-            android:exported="false" />
+
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -39,12 +76,11 @@
         <activity
             android:name=".CentersMapActivity"
             android:exported="false" />
-        <activity
-            android:name=".activities.StartActivity"
-            android:exported="true">
-        </activity>
+
+
         <activity
             android:name=".activities.SplashActivity"
+            android:theme="@style/AppTheme.NoActionBar"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

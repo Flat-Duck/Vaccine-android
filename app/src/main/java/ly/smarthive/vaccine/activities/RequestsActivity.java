@@ -53,28 +53,8 @@ public class RequestsActivity extends AppCompatActivity implements RequestsDataA
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_requests);
 
-        mAdapter = new RequestsDataAdapter(requestsList, this, this);
-        context = this;
-        RecyclerView recyclerView = findViewById(R.id.requests_rv);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.addItemDecoration(new MyDividerItemDecoration(this, DividerItemDecoration.VERTICAL, 36));
-        recyclerView.setAdapter(mAdapter);
 
-        Cache cache = AppController.getInstance().getRequestQueue().getCache();
-        Cache.Entry entry = cache.get(REQUESTS_URL);
-        if (entry != null) {
-            String data = new String(entry.data, StandardCharsets.UTF_8);
-            try {
-                parseJsonFeed(new JSONObject(data));
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        } else {
-            GrabAllRequests();
-        }
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+
     }
 
     @Override

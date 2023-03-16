@@ -2,32 +2,32 @@ package ly.smarthive.vaccine.models;
 
 public class Center {
     String name, address;
-    double lat,lng;
+    double latitude,longitude;
 
-    public Center(String name, String address, double lat, double lng) {
+    public Center(String name, String address, double latitude, double longitude) {
         this.name = name;
         this.address = address;
-        this.lat = lat;
-        this.lng = lng;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     public Center() {
     }
 
-    public double getLat() {
-        return lat;
+    public double getLatitude() {
+        return latitude;
     }
 
-    public void setLat(double lat) {
-        this.lat = lat;
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
     }
 
-    public double getLng() {
-        return lng;
+    public double getLongitude() {
+        return longitude;
     }
 
-    public void setLng(double lng) {
-        this.lng = lng;
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
     }
 
     public String getName() {

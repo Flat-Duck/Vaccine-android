@@ -82,7 +82,7 @@ public class DonorsDataAdapter extends RecyclerView.Adapter<DonorsDataAdapter.My
             super(view);
             name = view.findViewById(R.id.name_text);
             age = view.findViewById(R.id.age_txt);
-            request = view.findViewById(R.id.request_btn);
+            request = view.findViewById(R.id.profile_btn);
             request.setOnClickListener(view1 -> selectedItem.selectedItem(donorsList.get(getAdapterPosition())));
         }
     }

@@ -12,9 +12,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.android.volley.Request;
 import com.android.volley.toolbox.StringRequest;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.SignInMethodQueryResult;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.HashMap;
@@ -57,12 +59,12 @@ public class StartActivity extends AppCompatActivity {
         final View picker_layout = LayoutInflater.from(this).inflate(R.layout.layout_login, null);
         builder.setView(picker_layout);
         builder.setTitle(R.string.sign_in_title);
-        builder.setMessage(R.string.please_use_phone);
+        builder.setMessage(R.string.please_use_email);
         inputPassword = picker_layout.findViewById(R.id.passwrod);
         inputEmail = picker_layout.findViewById(R.id.email);
         builder.setPositiveButton(R.string.ok, (dialog, which) -> {
             if (checkNotNULL()) {
-                Log.e("ddd","ddd");
+
                 password = Objects.requireNonNull(inputPassword.getText()).toString().trim();
                 email = Objects.requireNonNull(inputEmail.getText()).toString().trim();
                 Log.d(TAG, "P:" + email + "//W:" + password);
@@ -117,7 +119,7 @@ public class StartActivity extends AppCompatActivity {
             }
         }, error -> {
             Log.e(TAG, "Login Error: " + error.getMessage());
-            Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
             hideDialog();
         }) {
             @Override
@@ -133,7 +135,13 @@ public class StartActivity extends AppCompatActivity {
     }
 
     public boolean signIn() {
-        Log.e("xxx","xxx");
+        isCheckEmail(email, isRegistered -> {
+            if(!isRegistered){
+                RegisterEmail();
+            }
+
+        });
+
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {
             if (task.isSuccessful()) {
                 Log.d(TAG, "signInWithEmail:success");
@@ -145,8 +153,17 @@ public class StartActivity extends AppCompatActivity {
                 user = null;
             }
         });
-
         return user != null;
+    }
+
+    private void RegisterEmail() {
+        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                Toast.makeText(getApplicationContext(), "Registration successful!", Toast.LENGTH_LONG).show();
+            }else {
+                Toast.makeText(getApplicationContext(), "Registration failed! Please try again later", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     private void checkLogin() {
@@ -184,5 +201,17 @@ public class StartActivity extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         checkLogin();
+    }
+
+    public interface OnEmailCheckListener {
+        void onSuccess(boolean isRegistered);
+    }
+
+    public void isCheckEmail(final String email,final OnEmailCheckListener listener){
+        mAuth.fetchSignInMethodsForEmail(email).addOnCompleteListener((OnCompleteListener<SignInMethodQueryResult>) task -> {
+            boolean check = !task.getResult().getSignInMethods().isEmpty();
+            listener.onSuccess(check);
+        });
+
     }
 }

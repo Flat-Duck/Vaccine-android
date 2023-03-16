@@ -1,13 +1,13 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Vaccine</string>
     <string name="title_activity_maps">MapsActivity</string>
 
     <string name="welcome">مرحبا</string>
     <string name="sign_in">دخول</string>
     <string name="exit">خروج</string>
-    <string name="you_should_have_an_account">يجب على الدكتور انشاء حساب خاص بك</string>
+    <string name="you_should_have_an_account">يجب على مدير النظام انشاء حساب خاص بك</string>
     <string name="sign_in_title">تسجيل الدخول</string>
-    <string name="please_use_phone">الرجاء ادخال رقم الهاتف للدخول</string>
+
     <string name="ok">حسناً</string>
     <string name="cancel">إلغاء</string>
     <string name="please_enter_credentials">الرجاء ادخال بيانات صحيحة</string>
@@ -59,4 +59,6 @@
     <string name="toolbar_title">Contacts</string>
     <string name="action_search">بحث</string>
     <string name="search_hint">Type name…</string>
+    <string name="please_use_email">الرجاء استعمال البريد الالكتروني</string>
+
 </resources>
