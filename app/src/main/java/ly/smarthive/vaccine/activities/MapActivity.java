@@ -3,6 +3,8 @@ package ly.smarthive.vaccine.activities;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.location.Geocoder;
 import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
@@ -26,6 +28,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.database.DataSnapshot;
@@ -85,6 +88,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                 mFusedLocationClient.requestLocationUpdates(mLocationRequest, mLocationCallback, Looper.myLooper());
                 mGoogleMap.setMyLocationEnabled(true);
+                //  myLocation
             } else {
                 checkLocationPermission();
             }
@@ -98,8 +102,8 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
             zoom = mGoogleMap.getCameraPosition().zoom;
             cameraLocation = mGoogleMap.getCameraPosition().target;
             Location location = locationResult.getLastLocation();
-            mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(cameraLocation, zoom));
             myLocation = new LatLng(location.getLatitude(), location.getLongitude());
+            mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myLocation, 12));
             COMMON.CURRENT_LAT = Double.toString(location.getLatitude());
             COMMON.CURRENT_LNG = Double.toString(location.getLongitude());
             helper.updateFbUser();
@@ -153,28 +157,39 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     void calculateDistance(LatLng caseLocation) {
 
         double distance = SphericalUtil.computeDistanceBetween(myLocation, caseLocation);
-        if (distance <= 100) {
-            Toast.makeText(this, "المسافة بينك وبين الحالة هي \n " + String.format("%.2f", distance ) + "متر", Toast.LENGTH_LONG).show();
-            if (distance <= 10 && !alerted) {
-                alerted = true;
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("Warning!");
-                builder.setMessage("هناك حالة بالقرب منك");
-                builder.setCancelable(false);
-                builder.setPositiveButton(getResources().getString(R.string.ok), (dialog, which) ->{
-                    dialog.cancel();
-                    alerted = false;});
-                AlertDialog alert = builder.create();
-                alert.show();
-            }
+      //  if (distance <= 100) {
+         //   Toast.makeText(this, "المسافة بينك وبين الحالة هي \n " + String.format("%.2f", distance ) + "متر", Toast.LENGTH_LONG).show();
+//            if (distance <= 10 && !alerted) {
+//                alerted = true;
+//                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//                builder.setTitle("Warning!");
+//                builder.setMessage("هناك حالة بالقرب منك");
+//                builder.setCancelable(false);
+//                builder.setPositiveButton(getResources().getString(R.string.ok), (dialog, which) ->{
+//                    dialog.cancel();
+//                    alerted = false;});
+//                AlertDialog alert = builder.create();
+//                alert.show();
+//            }
             addCaseMarker(caseLocation);
-        }
+     //   }
     }
 
     private void addCaseMarker(LatLng markerLocation) {
         MarkerOptions options = new MarkerOptions();
         options.title(getString(R.string.Case)).position(markerLocation);
         mGoogleMap.addMarker(options);
+
+        CircleOptions circleOptions = new CircleOptions();
+        circleOptions.center(markerLocation);
+        circleOptions.radius(700);
+        circleOptions.fillColor(Color.argb(20,250,47,47));
+        circleOptions.strokeWidth(1);
+        mGoogleMap.addCircle(circleOptions);
+
+        MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.position(markerLocation);
+        mGoogleMap.addMarker(markerOptions.title(getString(R.string.Case)));
     }
 
     @Override
@@ -190,8 +205,8 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
                     mFusedLocationClient.requestLocationUpdates(mLocationRequest, mLocationCallback, Looper.myLooper());
                     mGoogleMap.setMyLocationEnabled(true);
-                    //   Location currentLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
-                    //      mGoogleMap.addMarker(currentLocation.getLatitude(),)
+                    //L//ocation currentLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+                    ///      mGoogleMap.addMarker(currentLocation.getLatitude(),)
                 }
             } else {
                 // permission denied, boo! Disable the

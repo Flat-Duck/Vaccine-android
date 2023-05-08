@@ -1,7 +1,7 @@
 package ly.smarthive.vaccine;
 public class COMMON {
 
-    public static  String BASE_URL = "http://10.0.2.2:8080/vaccine/public/api/";
+    public static  String BASE_URL = "http://192.168.43.117/vaccine/public/api/";
     public static  String REQUESTS_URL = BASE_URL + "requests/";
 
     public static  String QR_URL = BASE_URL + "qr/";
